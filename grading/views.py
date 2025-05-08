@@ -46,21 +46,3 @@ def vote(request, project_id):
     else:
         Rating.objects.create(project=project, stars=stars)
         return HttpResponseRedirect(reverse('grading:results', args=(project.id,)))
-	# project = get_object_or_404(Project, pk=project_id)
-	# try:
-	# 	selected_choice = project.choice_set.get(pk=request.POST["choice"])
-	# except (KeyError, Choice.DoesNotExist):
-	# 	return render(
-	# 		request,
-	# 		"grading/detail.html",
-	# 		{
-	# 			"project": project,
-	# 			"error_message": "평가하지 않았습니다.",
-	# 		},
-	# 	)
-	# else:
-	# 	selected_choice.counts = F("counts") + 1
-	# 	selected_choice.save()
-	# 	return HttpResponseRedirect(reverse("grading:results", args=(project.id,)))
-	
-
